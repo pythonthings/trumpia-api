@@ -1,0 +1,52 @@
+MPSE0401	You cannot add a subscription without submitting an API contract.
+MPSE0402	You cannot edit a subscription without submitting an API contract.
+MPSE0501	The contact data being added has been blocked. The contact may have previously opted out of the system. Note: Contact data include email, mobile numbers and landline numbers.
+MPSE1001	The allow message parameter only accepts LANDLINE or MOBILE as values.
+MPSE1002	Valid values are fixed by the options of the custom data field. You can get the valid values via GET Custom Data Field.
+MPSE1003	Invalid row_size: Row_size must have a value from 100 to 10000.
+MPSE1101	Each list name can only be 1-30 characters in length.
+MPSE1102	The first name of the subscription exceeds the maximum length allowed.
+MPSE1103	The last name of the subscription exceeds the maximum length allowed.
+MPSE1104	Length of search data exceeded the character length limit. Please limit the search_data to 1~90 characters.
+MPSE1105	Max length is fixed by the options of the custom data field. You can get the valid values via GET Custom Data Field.
+MPSE1106	Mobile number must be 10 characters when the country_code is 1, and 1-20 characters when the country_code is not 1.
+MPSE1107	Landline number must be 10 characters.
+MPSE1201	The list name includes special characters that are not allowed.
+MPSE1202	The subscription ID can only include numerical values; no other characters are allowed.
+MPSE1202	The subscription id can only include numerical values; no other characters are allowed.
+MPSE1203	The list id can only include numerical values; no other characters are allowed.
+MPSE1204	The custom data ID can only include numerical values; no other characters are allowed.
+MPSE1205	The custom data value includes special characters that are not allowed.
+MPSE1206	The row_size parameter can only include numerical values; no other characters are allowed.
+MPSE1207	Invalid page: Only numerical values are valid.
+MPSE1208	The mobile number is only made up of numerical values; no other characters are allowed.
+MPSE1209	The landline number is only made up of numerical values; no other characters are allowed.
+MPSE2001	The phone number was invalid for voice messaging. Only the US, Canada, Guam, and Puerto Rico are supported for voice messaging.
+MPSE2002	Search type value is unsupported type. Supported search type values are 1~4 and 102~105.
+MPSE2004	Country_code should be 1 only for landline number. Only US landline number is supported.
+MPSE2101	The list name is empty.
+MPSE2102	The subscriptions are empty.
+MPSE2103	Tool information is missing for the subscription being added.
+MPSE2106	Search type is not specified.
+MPSE2107	Search data is not specified.
+MPSE2108	A list ID has not been entered.
+MPSE2109	A custom data ID has not been entered.
+MPSE2110	A value has not been entered.
+MPSE2201	The mobile number is incorrectly formatted.
+MPSE2202	The landline number is incorrectly formatted.
+MPSE2203	The email address is incorrectly formatted.
+MPSE2205	Unsupported date format. Dates have to be in the format of "YYYY-MM-DD hh:mm:ss".
+MPSE2206	Unsupported date range format. Dates have to be in the format of "YYYY-MM-DD hh:mm:ss~YYYY-MM-DD hh:mm:ss".
+MPSE2207	The format of the date's value is incorrect. The valid format is either YYYY-MM-DD or YYYY-MM-DD hh:mm:ss. You can check the valid formatting via PUSH Notification.
+MPSE2208	Mobile number may not start with 0 or 1 when the country_code is 1, and may not start with 0 when the country_code is not 1.
+MPSE2209	Landline number may not start with 0 or 1.
+MPSE2302	The list name being added was not found.
+MPSE2303	The requested subscription is invalid.
+MPSE2304	The list ID you queried does not exist.
+MPSE2305	No subscription was found with given criteria - search type and search data.
+MPSE2306	The custom data ID you entered does not exist.
+MPSE2401	The contact data being added has already been registered. Note: Contact data include email, mobile number, and landline number.
+MPSE2501	The value must be within the range specified in the custom data field. You can get the number range via GET Custom Data Field.
+MPSE2502	Valid value is decided by the default and interval values. You can get these values via GET Custom Data Field.
+MPSE2503	The carrier for this mobile number does not support Free to End User. Supported carriers: AT&T, Sprint, T-Mobile, Verizon Wireless, MetroPCS (GSM), Boost, Virgin Mobile.
+MPSE4001	Selected page does not have any subscriptions.
