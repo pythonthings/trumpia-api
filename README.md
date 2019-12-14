@@ -2,18 +2,25 @@
 
 # trumpia-api
 Trumpia API class for subscription, lists, messaging, and status report
-- PUT SUBSCRIPTION - functional
-- GET REPORT FOR PUT SUBSCRIPTION - functional
-- POST SUBSCRIPTION - functional
-- GET REPORT FOR POST SUBSCRIPTION - in progress
+- PUT SUBSCRIPTION
+- GET REPORT FOR PUT SUBSCRIPTION
+- POST SUBSCRIPTION
+- GET REPORT FOR POST SUBSCRIPTION
+- GET SEARCH SUBSCRIPTION by mobile number
+- GET SUBSCRIPTION BY SPECIFIC ID
 - SMS FUNCTION - in progress
 
 ### Setup
 - (Recommended) create your virtual environment
-  - python3 -m venv env
+  - python3.7 -m venv env
     - source env/bin/activate
 - install requests
-  - python3.6 -m pip install requests
+  - python3.7 -m pip install requests
+
+### Flow
+- driver.py has two functions
+    - main(): calls subscriptions
+    - subscription(): adds new contacts/updates existing contacts (first and or last name only)
 
 ## API Documentation
  - [Trumpia REST API](http://classic.trumpia.com/api/docs/rest/overview.php)

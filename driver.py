@@ -1,81 +1,102 @@
 from trumpia_Utility import Trumpia
 import time
 
-
-
-"""
-==================
-FAIL POST SUB response
-{
-    "status_code": "MPSE1202",
-    "push_id": 1079707577,
-    "request_id": "T1912101907588be8959c"
-}
-==================
-FAIL PUT SUB response
-[
-    {
-        "status_code": "MPSE1106",
-        "requested_data": {
-            "voice_device": "mobile",
-            "push_id": 1079633327,
-            "mobile": {
-                "number": "714342749",
-                "country_code": "1"
-            },
-            "request_id": "T19121016180775a99160"
-        }
+def subscriptions(mobile_number,first_name,last_name):
+    body = {
+        'list_name':'ContactsList',
+        'subscriptions':[
+            {
+                "first_name": first_name,
+                "last_name": last_name,
+                "mobile":
+                {
+                    "number":mobile_number,
+                    "country_code":"1"
+                },
+                "voice_device": "mobile"
+            }
+        ]
     }
-]
+    subscription_status = obj.getSearchSubscription(mobile_number)
+    if 'MPSE2305' in subscription_status :
+        print("PUT SUB")
+        request_id = obj.putSubscription(body)
+        time.sleep(2)
+        subscription_id = obj.getStatusReport(request_id)
+    elif 'subscription_id_list' in subscription_status:
+        print("POST SUB: ")
+        subscription_id = subscription_status['subscription_id_list']
+        subscription_id = str(subscription_id).strip("['']")
+        subscription_data = obj.getSubscription(subscription_id)
+        current_mobile_number = subscription_data['mobile']['value']
+        if current_mobile_number != mobile_number:
+            body = {
+                'list_name':'ContactsList',
+                'subscriptions':[
+                    {
+                        "mobile":
+                        {
+                            "number":mobile_number,
+                            "country_code":"1"
+                        },
+                        "voice_device": "mobile"
+                    }
+                ]
+            }
+            request_id = obj.postSubscription(subscription_id,body)
+            subscription_id = obj.getStatusReport(request_id)
 
-==============
-SUCCESS POST SUB
-{
-    "subscription_id": 525022199,
-    "push_id": 1079700092,
-    "message": "Success Update Subscription.",
-    "request_id": "T1912101834466870fbf1"
-}
+        current_list_ids = subscription_data['list_ids']
+        if 'first_name' in subscription_data:
+            current_first_name = subscription_data['first_name']
+            if current_first_name == first_name:
+                pass
+            else:
+                body = {
+                    'list_name':'ContactsList',
+                    'subscriptions':[
+                        {
+                            "first_name": first_name,
+                        }
+                    ]
+                }
+                request_id = obj.postSubscription(subscription_id,body)
+                subscription_id = obj.getStatusReport(request_id)
+        if 'last_name' in subscription_data:
+            current_last_name = subscription_data['last_name']
+            if current_first_name == first_name:
+                pass
+            else:
+                body = {
+                    'list_name':'ContactsList',
+                    'subscriptions':[
+                        {
+                            "last_name": last_name,
+                        }
+                    ]
+                }
+                request_id = obj.postSubscription(subscription_id,body)
+                subscription_id = obj.getStatusReport(request_id)
+        if 'last_name' not in subscription_data:
+            body = {
+                'list_name':'ContactsList',
+                'subscriptions':[
+                    {
+                        "last_name": last_name,
+                    }
+                ]
+            }
+            request_id = obj.postSubscription(subscription_id,body)
+            subscription_id = obj.getStatusReport(request_id)
+    else:
+        print('not sure')
 
-SUCCESS PUT Subscription
-[
-    {
-        "subscription_id": 525031205,
-        "push_id": 1079700919,
-        "request_id": "T19121018385192d77c6f"
-    }
-]
-"""
+def main():
+    mobile_number = '7143427492'
+    last_name = 'fig'
+    first_name = 'alf'
+    subscriptions(mobile_number,first_name,last_name)
 
-obj = Trumpia()
-# body = {
-#     'list_name':'ContactsList',
-#     'subscriptions':[
-#         {
-#             "email":"@gmail.com",
-#         }
-#     ]
-# }
-# #obj.subscriptionStatusCodes()
-# request_id = obj.putSubscription(body)
-#
-# subscription_id = obj.getStatusReport(request_id)
-#
-#
-# body = {
-#     'list_name':'ContactsList',
-#     'subscriptions':[
-#         {
-#             "email":"",
-#             "mobile":
-#             {
-#                 "number":"",
-#                 "country_code":"1"
-#             },
-#             "voice_device": "mobile"
-#
-#         }
-#     ]
-# }
-request_id = obj.postSubscription(subscription_id,body)
-subscription_id = obj.getStatusReport(")
+if __name__ == '__main__':
+    obj = Trumpia()
+    main()
