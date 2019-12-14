@@ -89,7 +89,7 @@ def subscriptions(mobile_number,first_name,last_name):
             request_id = obj.postSubscription(subscription_id,body)
             subscription_id = obj.getStatusReport(request_id)
     else:
-        print('not sure')
+        print(subscription_status)
 
 def main():
     mobile_number = ''
