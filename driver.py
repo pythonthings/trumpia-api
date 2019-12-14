@@ -92,9 +92,9 @@ def subscriptions(mobile_number,first_name,last_name):
         print('not sure')
 
 def main():
-    mobile_number = '7143427492'
-    last_name = 'fig'
-    first_name = 'alf'
+    mobile_number = ''
+    last_name = ''
+    first_name = ''
     subscriptions(mobile_number,first_name,last_name)
 
 if __name__ == '__main__':
