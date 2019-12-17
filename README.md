@@ -1,4 +1,5 @@
-![PyPI - Python Version](https://img.shields.io/badge/python-3.6-blue)
+![PyPI - Python Version](https://img.shields.io/badge/python-3.7-blue)
+![PyPI - Requests Version](https://img.shields.io/badge/requests-2.22-green)
 
 # trumpia-api
 Trumpia API class for subscription, lists, messaging, and status report

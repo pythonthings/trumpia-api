@@ -1,2 +1,4 @@
 #dependencies
 /env
+/__pycache__
+.*

@@ -173,10 +173,13 @@ class Trumpia:
         for codes in file:
             key, value = codes.split('\t')
             subscription_status_codes[key] = value
-
         if status_code in subscription_status_codes:
             subscription_status = subscription_status_codes[status_code]
+            return subscription_status
+        if status_code == "MPCE4001":
+            subscription_status = "MPCE4001"
+            return subscription_status
         else:
             print('Status code: {} not in subscriptionStatusCodes'.format(status_code))
-
-        return subscription_status
+            subscription_status = "UKNOWN"
+            return subscription_status
