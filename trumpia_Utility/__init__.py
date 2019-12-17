@@ -1,10 +1,14 @@
 #!/usr/bin/python3
+from configparser import ConfigParser
 import requests, json, time,os
 
 PATH = os.getcwd()
-USERNAME = ''
+"""------------GET TRM API CREDENTIALS----------- """
+PARSER = ConfigParser()
+PARSER.read('conf.ini')
+USERNAME = PARSER.get('trm_api','trm_username')
+APIKEY = PARSER.get('trm_api','trm_apikey')
 TRMURL = 'https://api.trumpia.com/rest/v1/'+USERNAME+'/'
-APIKEY = ''
 HEADER = {
     'Content-Type': 'application/json',
     'x-apikey': APIKEY
